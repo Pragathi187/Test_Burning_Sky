@@ -7,11 +7,14 @@ public class DestroyOnContact : MonoBehaviour
 
     public int health;
     public GameObject explosion;
-   
+    public GameController gameController;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
+        this.GetComponent<DestroyOnContact>().explosion = (GameObject)GameObject.Find("CartoonBlast_Fireball");
+       
     }
 
     // Update is called once per frame
@@ -29,6 +32,9 @@ public class DestroyOnContact : MonoBehaviour
                 explosion.GetComponent<ParticleSystem>().Play();
                 other.gameObject.SetActive(false);
                 this.gameObject.SetActive(false);
+                gameController.score += 10;
+                gameController.scoreText.text = "Score: " + gameController.score.ToString();
+                FindObjectOfType<AudioManager>().GetComponent<AudioManager>().PlayAudio(0);
 
 
             }
@@ -46,8 +52,8 @@ public class DestroyOnContact : MonoBehaviour
             explosion.transform.position = this.transform.position;
             explosion.GetComponent<ParticleSystem>().Play();
             this.gameObject.SetActive(false);
+            FindObjectOfType<AudioManager>().GetComponent<AudioManager>().PlayAudio(1);
 
-            
         }
     }
 }

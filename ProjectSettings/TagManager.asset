@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bullet
+  - PlayerTurret
+  - Enemy
+  - enemyBullet
+  - PowerUps
+  - EnemySpaceShip
+  - EnemySpaceShip-2
+  - PowerUp
   layers:
   - Default
   - TransparentFX

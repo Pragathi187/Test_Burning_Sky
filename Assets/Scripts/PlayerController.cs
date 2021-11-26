@@ -10,27 +10,22 @@ public class PlayerController : MonoBehaviour
     public float speed;
     Camera mainCamera;
     Camera cam;
-
     ObjectPooler ObjectPooler;
-
-
     private Vector2 screenBounds;
     float xMin, xMax, zMin, zMax;
-    
     public Transform shotSpawn;
-    private bool isMoving = false;
-    public bool gameOver = false;
-    Collider col;
-    Vector3 pos;
-   
-    public float fireRate;
-    private float nextFire;
+   // public Transform shotSpawnLeft;
+   // public Transform shotSpawnRight;
+    //private bool isMoving = false;
+     Collider col;
+     Vector3 pos;
+    public int health = 20;
+    public GameObject playerExplosion;
 
-    
+
     // Start is called before the first frame update
     void Start()
-
-    {
+{
 
         col = GetComponent<Collider>();
         cam = Camera.main;
@@ -41,12 +36,11 @@ public class PlayerController : MonoBehaviour
         zMin = -screenBounds.y / 4;
         zMax = screenBounds.y - (screenBounds.y / 4);
         rb = this.GetComponent<Rigidbody>();
-        isMoving = true;
-        //activePlayerTurrets = new List<GameObject>();
-        //activePlayerTurrets.Add(startWeapon);
+        //isMoving = true;
+        
         ObjectPooler = ObjectPooler.sharedInstance;
 
-    }
+ }
 
 
     void FixedUpdate()
@@ -67,40 +61,37 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         ObjectPooler.SpawnFromPool("Bullet", shotSpawn.transform.position, shotSpawn.transform.rotation);
-        print("start");
+        //ObjectPooler.SpawnFromPool("Bullet1", shotSpwanLeft.transform.position, shotSpwanLeft.transform.rotation);
+        //ObjectPooler.SpawnFromPool("Bullet2", shotSpawnRight.transform.position, shotSpawnRight.transform.rotation);
 
-
-      /*  if (Time.time > nextFire)
-            {
-                nextFire = Time.time + fireRate;
-                nextFire = Time.time + fireRate;
-                GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject();
-                if (bullet != null)
-                {
-                    bullet.transform.position = shotSpawn.transform.position;
-                    bullet.transform.rotation = shotSpawn.transform.rotation;
-                    bullet.SetActive(true);
-                }
-
-            }
-        
-        */
 
     }
-   // void Shoot()
-    
-        /*foreach (GameObject turret in activePlayerTurrets)
+   
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("enemyBullet"))
         {
-            GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject();
-            if (bullet != null)
+            if (health < 0)
             {
-                bullet.transform.position = turret.transform.position;
-                bullet.transform.rotation = turret.transform.rotation;
-                bullet.SetActive(true);
+               
+                other.gameObject.SetActive(false);
+                this.gameObject.SetActive(false);
+                playerExplosion.transform.position = other.transform.position;
+                playerExplosion.GetComponent<ParticleSystem>().Play();
+                FindObjectOfType<AudioManager>().GetComponent<AudioManager>().PlayAudio(1);
+                
             }
-        }*/
-       
-    
+            else
+            {
+                other.gameObject.SetActive(false);
+                health -= 1;
+            }
+
+
+
+        }
+
+
+    }
     
 }
-

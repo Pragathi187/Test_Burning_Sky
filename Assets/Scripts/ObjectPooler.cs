@@ -42,12 +42,11 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
-        print("entered");
-        //print(tag);
+           
        if (!poolDictionary.ContainsKey(tag))
         {
 
-            print(tag);
+           
             Debug.LogWarning("Pool with tag" + " " +  tag  + " " + "doesn't exists");
             return null;
         }
@@ -57,6 +56,11 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.transform.rotation = rotation;
         objectToSpawn.SetActive(true);
 
+        IPooledObject pooledobj = objectToSpawn.GetComponent<IPooledObject>();
+        if(pooledobj!=null)
+        {
+            pooledobj.OnObjectSpawn();
+        }
         poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;

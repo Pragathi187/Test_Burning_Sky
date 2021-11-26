@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPooledObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float zforce = 5f;
 
-    // Update is called once per frame
-    void Update()
+    public void OnObjectSpawn()
     {
-        
+        Vector3 force = new Vector3(0, 0, zforce);
+        GetComponent<Rigidbody>().velocity = force;
     }
 }

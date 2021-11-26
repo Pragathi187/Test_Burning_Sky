@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boundary : MonoBehaviour
 {
     Camera mainCamera;
-    private Vector2 screenBounds;
+    [HideInInspector]public Vector2 screenBounds;
     void Start()
     {
         mainCamera = Camera.main;
@@ -22,6 +22,14 @@ public class Boundary : MonoBehaviour
     private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.tag == "bullet")
+        {
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "enemyBullet")
         {
             collision.gameObject.SetActive(false);
         }
