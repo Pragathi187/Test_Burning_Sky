@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,17 +11,24 @@ public class PlayerController : MonoBehaviour
     public float speed;
     Camera mainCamera;
     Camera cam;
-    ObjectPooler ObjectPooler;
+   
     private Vector2 screenBounds;
     float xMin, xMax, zMin, zMax;
     public Transform shotSpawn;
-   // public Transform shotSpawnLeft;
-   // public Transform shotSpawnRight;
-    //private bool isMoving = false;
+    public Transform shotSpawnLeft;
+    public Transform shotSpawnRight;
+  
      Collider col;
      Vector3 pos;
     public int health = 20;
     public GameObject playerExplosion;
+  
+    public float spawnWait;
+    public float startWait;
+    public float waveWait;
+
+    public Text HealthText;
+    
 
 
     // Start is called before the first frame update
@@ -36,11 +44,11 @@ public class PlayerController : MonoBehaviour
         zMin = -screenBounds.y / 4;
         zMax = screenBounds.y - (screenBounds.y / 4);
         rb = this.GetComponent<Rigidbody>();
-        //isMoving = true;
-        
-        ObjectPooler = ObjectPooler.sharedInstance;
+       
+        StartCoroutine("ShootBullets");
+        HealthText.text = health.ToString();
 
- }
+    }
 
 
     void FixedUpdate()
@@ -54,24 +62,45 @@ public class PlayerController : MonoBehaviour
             Mathf.Clamp(rb.position.z, zMin, zMax)
             );
         rb.velocity = movement * speed;
-        //rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
+        
     }
 
     // Update is called once per frame
     public void Update()
     {
-        ObjectPooler.SpawnFromPool("Bullet", shotSpawn.transform.position, shotSpawn.transform.rotation);
-        //ObjectPooler.SpawnFromPool("Bullet1", shotSpwanLeft.transform.position, shotSpwanLeft.transform.rotation);
-        //ObjectPooler.SpawnFromPool("Bullet2", shotSpawnRight.transform.position, shotSpawnRight.transform.rotation);
-
+        HealthText.text = "Health: " + health.ToString();
+       
 
     }
-   
+    IEnumerator  ShootBullets()
+    {
+        yield return new WaitForSeconds(startWait);
+        while (true)
+        {
+
+            GameObject bullet = gameObject.GetComponent<BulletPooler>().GetPooledObject();
+            if (bullet != null)
+            {
+                
+                bullet.transform.position = shotSpawn.transform.position;
+                bullet.transform.rotation = shotSpawn.transform.rotation;
+                bullet.SetActive(true);
+
+
+              yield return new WaitForSeconds(spawnWait);
+            }
+          
+            yield return new WaitForSeconds(waveWait);
+        }
+          
+        
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("enemyBullet"))
         {
-            if (health < 0)
+            if (health <= 0)
             {
                
                 other.gameObject.SetActive(false);
@@ -79,7 +108,8 @@ public class PlayerController : MonoBehaviour
                 playerExplosion.transform.position = other.transform.position;
                 playerExplosion.GetComponent<ParticleSystem>().Play();
                 FindObjectOfType<AudioManager>().GetComponent<AudioManager>().PlayAudio(1);
-                
+                Invoke("GameOver", 0.5f);
+
             }
             else
             {
@@ -91,7 +121,13 @@ public class PlayerController : MonoBehaviour
 
         }
 
+       
+    }
 
+    public void GameOver()
+    {
+        
+        FindObjectOfType<GameController>().GetComponent<GameController>().GameOver();
     }
     
 }

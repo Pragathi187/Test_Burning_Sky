@@ -14,16 +14,20 @@ public class BulletPooler : MonoBehaviour
     {
         SharedInstance = this;
     }
+
     void Start()
     {
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < amountToPool; i++)
         {
+            //Instanstiate bullet and set them inactive
             GameObject obj = (GameObject)Instantiate(objectsToPool);
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
     }
+
+
     public GameObject GetPooledObject()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
@@ -33,17 +37,19 @@ public class BulletPooler : MonoBehaviour
                 return pooledObjects[i];
             }
         }
-        if (shouldExpand)
+       /* if (shouldExpand)
         {
             GameObject obj = (GameObject)Instantiate(objectsToPool);
             obj.SetActive(false);
             pooledObjects.Add(obj);
             return obj;
-        }
-        else
-        {
-            return null;
-        }
+        }*/
+        
+        
+       GameObject obj = (GameObject)Instantiate(objectsToPool);
+       pooledObjects.Add(obj);
+       return obj;
+        
     }
 
 }

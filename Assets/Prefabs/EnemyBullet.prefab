@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8572433363187674293}
   - component: {fileID: 1511634442972600221}
   - component: {fileID: 245422285303736475}
-  - component: {fileID: 7591335255543776782}
+  - component: {fileID: 114448311438105586}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: enemyBullet
@@ -141,7 +141,7 @@ CapsuleCollider:
   m_Height: 0.09
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7591335255543776782
+--- !u!114 &114448311438105586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

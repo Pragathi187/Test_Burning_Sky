@@ -31,6 +31,19 @@ public class Boundary : MonoBehaviour
         }
         if (collision.gameObject.tag == "enemyBullet")
         {
+           collision.gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.tag == "PowerUp")
+        {
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "EnemyShipSnow")
+        {
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "EnemyShipDessert")
+        {
             collision.gameObject.SetActive(false);
         }
     }

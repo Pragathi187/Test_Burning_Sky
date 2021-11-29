@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public GameObject shot;
+    public GameObject bulletPrefab;
     public Transform shotSpawn;
     public float fireRate;
     public float delay;
     Vector2 screenBounds;
+
+   
     void Start()
     {
         InvokeRepeating("Fire", delay, fireRate);
@@ -22,12 +24,13 @@ public class WeaponController : MonoBehaviour
         {
             return;
         }
-        GameObject bullet = gameObject.GetComponent<BulletPooler >().GetPooledObject();
-        if (bullet != null)
-        {
-            bullet.transform.position = shotSpawn.transform.position;
-            bullet.transform.rotation = shotSpawn.transform.rotation;
-            bullet.SetActive(true);
-        }
+        /* GameObject bullet = gameObject.GetComponent<BulletPooler >().GetPooledObject();
+         if (bullet != null)
+         {
+             bullet.transform.position = shotSpawn.transform.position;
+             bullet.transform.rotation = shotSpawn.transform.rotation;
+             bullet.SetActive(true);
+         }*/
+        Instantiate(bulletPrefab, shotSpawn.transform.position, shotSpawn.transform.rotation);
     }
 }

@@ -102,7 +102,6 @@ GameObject:
   - component: {fileID: 6660763757956020511}
   - component: {fileID: 6660763757956020505}
   - component: {fileID: 6660763757956020506}
-  - component: {fileID: 6660763757956020507}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -174,26 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   shotSpawn: {fileID: 6660763756051245457}
-  gameOver: 0
   health: 10
   playerExplosion: {fileID: 0}
---- !u!114 &6660763757956020507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6660763757956020510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44bd835d18e84914a9b03d9cba6b0b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools:
-  - tag: Bullet
-    prefab: {fileID: 7416700332435386100, guid: e38fcbce56b4b1747a838f1d3480964b,
-      type: 3}
-    size: 5
 --- !u!1001 &6660763756970776921
 PrefabInstance:
   m_ObjectHideFlags: 0

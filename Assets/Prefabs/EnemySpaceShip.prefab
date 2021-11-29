@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 1040490520011308072}
   - component: {fileID: 1040490520011308073}
   - component: {fileID: 1040490520011308077}
-  - component: {fileID: 6005713719269137779}
   - component: {fileID: 1040490520011308076}
   - component: {fileID: 1040490520011308050}
   m_Layer: 0
@@ -112,26 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f793a284be305ce45bfedd1c25cb29d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 2
   explosion: {fileID: 0}
   gameController: {fileID: 0}
---- !u!114 &6005713719269137779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040490520011308078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e67564a5eff7b548bd046fa3b6fed19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
-    type: 3}
-  amountToPool: 10
-  shouldExpand: 1
 --- !u!114 &1040490520011308076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,10 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70e01c5491354341b05a158a7fdf79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shot: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247, type: 3}
+  bulletPrefab: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
+    type: 3}
   shotSpawn: {fileID: 1040490518016481572}
   fireRate: 1
-  delay: 0.5
+  delay: 1
 --- !u!114 &1040490520011308050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72ca0d5866825048bd545a7b683693e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 0.15
+  player: {fileID: 6660763757956020510, guid: 9f17acd55831ecb4089a90e885804eb0, type: 3}
 --- !u!1 &3840445283260635031
 GameObject:
   m_ObjectHideFlags: 0

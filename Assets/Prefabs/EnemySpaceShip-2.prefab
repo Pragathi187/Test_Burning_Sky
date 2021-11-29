@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 858825908150871663}
   m_Layer: 0
   m_Name: EnemySpaceShip-2
-  m_TagString: EnemySpaceShip-2
+  m_TagString: EnemyShipSnow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f793a284be305ce45bfedd1c25cb29d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 2
   explosion: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!114 &858825908150871633
@@ -144,10 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70e01c5491354341b05a158a7fdf79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shot: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247, type: 3}
+  bulletPrefab: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
+    type: 3}
   shotSpawn: {fileID: 858825906097718105}
   fireRate: 1
-  delay: 0.5
+  delay: 1
 --- !u!114 &858825908150871663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72ca0d5866825048bd545a7b683693e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 0.15
+  player: {fileID: 6660763757956020510, guid: 9f17acd55831ecb4089a90e885804eb0, type: 3}
 --- !u!1 &3519485742441057770
 GameObject:
   m_ObjectHideFlags: 0
