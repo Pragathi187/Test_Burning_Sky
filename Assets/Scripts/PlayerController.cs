@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     public float waveWait;
 
     public Text HealthText;
+    public GameController gameController;
+    private bool enableShield=false;
+    private float shieldEnabletime=5f;
+    public GameObject shield;
     
 
 
@@ -44,15 +48,18 @@ public class PlayerController : MonoBehaviour
         zMin = -screenBounds.y / 4;
         zMax = screenBounds.y - (screenBounds.y / 4);
         rb = this.GetComponent<Rigidbody>();
-       
+        gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
         StartCoroutine("ShootBullets");
         HealthText.text = health.ToString();
 
     }
 
+   
 
     void FixedUpdate()
     {
+
+        //update the player movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -68,6 +75,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+
         HealthText.text = "Health: " + health.ToString();
        
 
@@ -129,5 +137,7 @@ public class PlayerController : MonoBehaviour
         
         FindObjectOfType<GameController>().GetComponent<GameController>().GameOver();
     }
+
+  
     
 }

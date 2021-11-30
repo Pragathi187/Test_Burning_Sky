@@ -7,13 +7,13 @@ public class PowerUp : MonoBehaviour
 
     void Start()
     {
-        Invoke("HidePowerUp", 10f);
+        Invoke("HidePowerUp", 8f);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player"))
         {
-            //other.GetComponent<PlayerController>().bullets_PowerUp = true;
+            
             this.gameObject.SetActive(false);
         }
     }

@@ -6,6 +6,7 @@ public class Boundary : MonoBehaviour
 {
     Camera mainCamera;
     [HideInInspector]public Vector2 screenBounds;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -19,6 +20,8 @@ public class Boundary : MonoBehaviour
 
     }
 
+
+    //turn off the gameobject once they exist the boundary
     private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.tag == "bullet")

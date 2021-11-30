@@ -16,11 +16,7 @@ public class BulletSpawn : MonoBehaviour
        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      //  transform.position += transform.forward * speed * Time.deltaTime;
-    }
+   
     private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.tag == "enemyBullet")

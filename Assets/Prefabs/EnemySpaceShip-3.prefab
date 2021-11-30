@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 174455122725245394}
   - component: {fileID: 174455122725245405}
   - component: {fileID: 174455122725245404}
-  - component: {fileID: 7222798055256180679}
   - component: {fileID: 174455122725245400}
   - component: {fileID: 174455122725245401}
   - component: {fileID: 174455122725245415}
+  - component: {fileID: 114622868130307658}
   m_Layer: 0
   m_Name: EnemySpaceShip-3
   m_TagString: EnemyShipDessert
@@ -70,23 +70,6 @@ CapsuleCollider:
   m_Height: 0.2051129
   m_Direction: 2
   m_Center: {x: 0.0011036918, y: 0, z: 0.002443537}
---- !u!114 &7222798055256180679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174455122725245403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e67564a5eff7b548bd046fa3b6fed19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
-    type: 3}
-  amountToPool: 10
-  shouldExpand: 1
 --- !u!114 &174455122725245400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +114,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72ca0d5866825048bd545a7b683693e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.15
-  player: {fileID: 6660763757956020510, guid: 9f17acd55831ecb4089a90e885804eb0, type: 3}
+  speed: 0.2
+--- !u!114 &114622868130307658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174455122725245403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e67564a5eff7b548bd046fa3b6fed19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
+    type: 3}
+  amountToPool: 5
+  shouldExpand: 0
 --- !u!1 &174455124694840528
 GameObject:
   m_ObjectHideFlags: 0

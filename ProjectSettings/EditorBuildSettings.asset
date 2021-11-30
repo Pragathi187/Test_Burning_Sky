@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4822b4ce4f6ed614e88e2033a049c1d2
+  - enabled: 1
+    path: Assets/Scenes/Test_Burning_Sky_Level-1.unity
+    guid: 5d6fba625224070409031eb435931052
   m_configObjects: {}

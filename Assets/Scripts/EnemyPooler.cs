@@ -31,6 +31,7 @@ public class EnemyPooler : MonoBehaviour
         {
             for (int i = 0; i < item.amountToPool; i++)
             {
+                //get objects and set them inactive
                 GameObject obj = (GameObject)Instantiate(item.objectsToPool);
                 obj.SetActive(false);
                 pooledObjects.Add(obj);

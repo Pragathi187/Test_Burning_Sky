@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     Camera mainCamera;
 
     //FirePop-Ups
+    
     public int hazardCount;
     public float powerUpSpwanWait;
     public float powerUpstart;
@@ -18,19 +19,26 @@ public class GameController : MonoBehaviour
 
     //For Enemies
     float spawnWait = 1f;
-    float startWait = 1f;
-    float waveWait = 4f;
+    float startWait = 0.5f;
+    float waveWait = 6f;
     //enemys
     public int enemiesPerWave=2;
 
 
     //UI elements
     public Text scoreText;
-    public int score;
     public Text highScore;
     public Text powerUpText;
+    public Text continueButtonText;
+
+    [HideInInspector]
+    public int score;
     public int powerUpScore;
-    public Text replayButtonText;
+  
+    public GameObject replayButton;
+    public GameObject continueButton;
+    [HideInInspector]
+    
 
 
     //gameobjects
@@ -46,6 +54,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         highScore.text = PlayerPrefs.GetInt("HighScore,0").ToString();
+        
         playerController = FindObjectOfType<PlayerController>().GetComponent<PlayerController>();
         mainCamera = Camera.main;
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
@@ -174,13 +183,14 @@ public class GameController : MonoBehaviour
     //game over panel once the player gets dead
     public void GameOver()
     {
-        if(powerUpScore>10)
-        {
-            replayButtonText.text = "Use" + "       " + powerUpScore.ToString() + " " + "To continue";
-        }
-       
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
+
+        if (powerUpScore>20)
+        {
+            continueButton.SetActive(false);
+            continueButtonText.text = "Use" + "       " + (powerUpScore/2).ToString() + " " + "To continue";
+        }
         if (score > PlayerPrefs.GetInt("HighScore",0) )
         {
             PlayerPrefs.SetInt("HighScore", score);
@@ -193,14 +203,19 @@ public class GameController : MonoBehaviour
     //to start over the game again
     public void Replay()
     {
-       
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     //exit the game
     public void Exit()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
+    }
+
+    //continue using the power up score
+    public void Continue()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 

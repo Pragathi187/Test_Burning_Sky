@@ -12,6 +12,10 @@ TagManager:
   - EnemySpaceShip
   - EnemySpaceShip-2
   - PowerUp
+  - EnemyShipSnow
+  - EnemyShipRed
+  - EnemyShipDessert
+  - Shield
   layers:
   - Default
   - TransparentFX

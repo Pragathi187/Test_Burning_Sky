@@ -24,13 +24,13 @@ public class WeaponController : MonoBehaviour
         {
             return;
         }
-        /* GameObject bullet = gameObject.GetComponent<BulletPooler >().GetPooledObject();
+         GameObject bullet = gameObject.GetComponent<BulletPooler >().GetPooledObject();
          if (bullet != null)
          {
              bullet.transform.position = shotSpawn.transform.position;
              bullet.transform.rotation = shotSpawn.transform.rotation;
              bullet.SetActive(true);
-         }*/
-        Instantiate(bulletPrefab, shotSpawn.transform.position, shotSpawn.transform.rotation);
+         }
+        
     }
 }

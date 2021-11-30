@@ -17,13 +17,10 @@ public class DestroyOnContact : MonoBehaviour
        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+  
     public void OnTriggerEnter(Collider other)
     {
+        //check if enemies collide with playeror bullet and set them inactive and increase the score
         if (other.gameObject.tag.Equals("bullet"))
         {
             if (health < 0)
@@ -42,7 +39,7 @@ public class DestroyOnContact : MonoBehaviour
             else
             {
                 health -= 1;
-                other.gameObject.SetActive(false);
+                other.gameObject.SetActive(false);//if enemy die set it inactive
             }
         }
 

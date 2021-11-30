@@ -41,11 +41,11 @@ GameObject:
   - component: {fileID: 1775768021032727609}
   - component: {fileID: 1775768021032727606}
   - component: {fileID: 1775768021032727607}
-  - component: {fileID: 9147805944120549932}
   - component: {fileID: 1775768021032727603}
   - component: {fileID: 1775768021032727602}
   - component: {fileID: 1775768021032727564}
   - component: {fileID: 95294072707928754}
+  - component: {fileID: 114267265914117268}
   m_Layer: 0
   m_Name: EnemySpaceShip-4
   m_TagString: EnemyShipRed
@@ -101,23 +101,6 @@ CapsuleCollider:
   m_Height: 0.2051129
   m_Direction: 2
   m_Center: {x: 0.0011036918, y: 0, z: 0.002443537}
---- !u!114 &9147805944120549932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775768021032727600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e67564a5eff7b548bd046fa3b6fed19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
-    type: 3}
-  amountToPool: 10
-  shouldExpand: 1
 --- !u!114 &1775768021032727603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
-  player: {fileID: 6660763757956020510, guid: 9f17acd55831ecb4089a90e885804eb0, type: 3}
 --- !u!95 &95294072707928754
 Animator:
   serializedVersion: 3
@@ -174,7 +156,7 @@ Animator:
   m_GameObject: {fileID: 1775768021032727600}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee1ed99be0e22b047aa8f647853c3ad4, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,6 +165,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114267265914117268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775768021032727600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e67564a5eff7b548bd046fa3b6fed19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
+    type: 3}
+  amountToPool: 5
+  shouldExpand: 0
 --- !u!1 &2564900752356745097
 GameObject:
   m_ObjectHideFlags: 0

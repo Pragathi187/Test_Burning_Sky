@@ -18,9 +18,9 @@ public class Rotator : MonoBehaviour
     {
         gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
         rb = GetComponent<Rigidbody>();
-        //.angularVelocity = Random.insideUnitSphere * tumble;
+        
         rb.velocity = -transform.forward * speed;
-      //  StartCoroutine("SpawnPoweUps");
+     
     }
 
     // Update is called once per frame

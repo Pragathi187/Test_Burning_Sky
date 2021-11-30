@@ -5,12 +5,16 @@ using UnityEngine;
 public class EnemyMover : MonoBehaviour
 {
     public float speed;
-   
-    void Start()
+    
+    Rigidbody rb;
+
+
+    void OnEnable()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        rb.velocity = -transform.forward * speed;
-      
+        rb.velocity = -transform.forward * speed; //enemy to move
+       
+
     }
 
    

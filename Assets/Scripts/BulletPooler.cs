@@ -37,15 +37,9 @@ public class BulletPooler : MonoBehaviour
                 return pooledObjects[i];
             }
         }
-       /* if (shouldExpand)
-        {
-            GameObject obj = (GameObject)Instantiate(objectsToPool);
-            obj.SetActive(false);
-            pooledObjects.Add(obj);
-            return obj;
-        }*/
+      
         
-        
+        //add the objects to the list
        GameObject obj = (GameObject)Instantiate(objectsToPool);
        pooledObjects.Add(obj);
        return obj;
