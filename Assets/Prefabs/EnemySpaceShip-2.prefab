@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 858825908150871633}
   - component: {fileID: 858825908150871663}
   - component: {fileID: 114344979420823710}
+  - component: {fileID: 114089598501624596}
   m_Layer: 0
   m_Name: EnemySpaceShip-2
   m_TagString: EnemyShipSnow
@@ -112,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f793a284be305ce45bfedd1c25cb29d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 1
   explosion: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!114 &858825908150871633
@@ -144,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72ca0d5866825048bd545a7b683693e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.19
+  speed: 0.2
 --- !u!114 &114344979420823710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,8 +161,26 @@ MonoBehaviour:
   pooledObjects: []
   objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
     type: 3}
-  amountToPool: 5
+  amountToPool: 2
   shouldExpand: 0
+--- !u!114 &114089598501624596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858825908150871635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74a179827e5dda499f1beb0f8e00363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWait: {x: 0.6, y: 1}
+  dodge: 0.5
+  manueverTime: {x: 1, y: 2}
+  manueverWait: {x: 1, y: 1}
+  smoothing: 7.5
+  tilt: 30
 --- !u!1 &3519485742441057770
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     //For Enemies
     float spawnWait = 1f;
     float startWait = 0.5f;
-    float waveWait = 6f;
+    float waveWait =6f;
     //enemys
     public int enemiesPerWave=2;
 
@@ -43,7 +43,8 @@ public class GameController : MonoBehaviour
 
     //gameobjects
     public GameObject gameOverPanel;
-   
+    public GameObject gameWinPanel;
+
     public PlayerController playerController;
     
 
@@ -62,6 +63,15 @@ public class GameController : MonoBehaviour
         StartCoroutine("SpawnPoweUps");
     }
 
+    private void Update()
+    {
+        if(score>150 && playerController.health>40)
+        {
+            Time.timeScale = 0f;
+            gameWinPanel.SetActive(true);
+        }
+    }
+
 
     IEnumerator SpawnPoweUps()
     {
@@ -75,7 +85,7 @@ public class GameController : MonoBehaviour
             {
 
 
-                Vector3 spawnPosition = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, screenBounds.y + 0.3f);
+                Vector3 spawnPosition = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, screenBounds.y +0.3f);
                 Quaternion spawnRotation = Quaternion.identity;
                 GameObject hazrad = gameObject.GetComponent<BulletPooler>().GetPooledObject(); ;
 
@@ -104,17 +114,19 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(startWait);
         while (true)
         {
-            float waveType = Random.Range(1.0f, 10.0f);
+
+            yield return new WaitForSeconds(2f);
+            float waveType = Random.Range(1.0f, 12.0f);
 
             for (int i = 0; i < enemiesPerWave; i++)
             {
-                
- 
+                Vector3 spawnPosition = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, screenBounds.y+1f);
+                Quaternion spawnRotation = Quaternion.identity;
+
                 if (waveType <= 3.0f)
                 {
 
-                    Vector3 spawnPosition = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, screenBounds.y + 0.3f);
-                    Quaternion spawnRotation = Quaternion.identity;
+                   
                     GameObject enemy1 = EnemyPooler.SharedInstance.GetPooledObject("EnemySpaceShip"); ;
                     if (enemy1 != null)
                     {
@@ -124,10 +136,8 @@ public class GameController : MonoBehaviour
                     }
 
                 }
-                if ((waveType > 3.0f ) || (waveType >= 6.0f))
+                if ((waveType > 3.0f ) || (waveType < 6.0f))
                 {
-                    Vector3 spawnPosition = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, screenBounds.y + 0.3f);
-                    Quaternion spawnRotation = Quaternion.identity;
                     GameObject enemy2 = EnemyPooler.SharedInstance.GetPooledObject("EnemyShipSnow");
                     if (enemy2 != null)
                     {
@@ -137,23 +147,20 @@ public class GameController : MonoBehaviour
                         enemy2.SetActive(true);
                     }
                 }
-                if (score==20)
+                if ((waveType <= 3.0f) || (waveType >= 9.0f))
                 {
-                    Vector3 spawnPosition = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, screenBounds.y + 0.3f);
-                    Quaternion spawnRotation = Quaternion.identity;
-                    GameObject enemy5 = EnemyPooler.SharedInstance.GetPooledObject("EnemyShipRed");
-                    if (enemy5 != null)
+                    
+                    GameObject enemy4 = EnemyPooler.SharedInstance.GetPooledObject("EnemyShipRed");
+                    if (enemy4 != null)
                     {
 
-                        enemy5.transform.position = spawnPosition;
-                        enemy5.transform.rotation = spawnRotation;
-                        enemy5.SetActive(true);
+                        enemy4.transform.position = spawnPosition;
+                        enemy4.transform.rotation = spawnRotation;
+                        enemy4.SetActive(true);
                     }
                 }
                 else
                 {
-                    Vector3 spawnPosition = new Vector3(Random.Range(-screenBounds.x, screenBounds.x), 0, screenBounds.y + 0.3f);
-                    Quaternion spawnRotation = Quaternion.identity;
                     GameObject enemy3 = EnemyPooler.SharedInstance.GetPooledObject("EnemyShipDessert");
                     if (enemy3 != null)
                     {
@@ -188,8 +195,8 @@ public class GameController : MonoBehaviour
 
         if (powerUpScore>20)
         {
-            continueButton.SetActive(false);
-            continueButtonText.text = "Use" + "       " + (powerUpScore/2).ToString() + " " + "To continue";
+            continueButton.SetActive(true);
+            continueButtonText.text = "Use" + "       " +  (powerUpScore/2).ToString() + " " + "To continue";
         }
         if (score > PlayerPrefs.GetInt("HighScore",0) )
         {

@@ -10,8 +10,8 @@ public class Boundary : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
-        this.transform.localScale = new Vector3(screenBounds.x * 2, 0.1f, screenBounds.y * 2);
+       screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
+       this.transform.localScale = new Vector3(screenBounds.x * 2, 0.1f, screenBounds.y * 2);
     }
 
     // Update is called once per frame
@@ -28,10 +28,7 @@ public class Boundary : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
         }
-        if (collision.gameObject.tag == "Enemy")
-        {
-            collision.gameObject.SetActive(false);
-        }
+       
         if (collision.gameObject.tag == "enemyBullet")
         {
            collision.gameObject.SetActive(false);
@@ -43,11 +40,22 @@ public class Boundary : MonoBehaviour
         }
         if (collision.gameObject.tag == "EnemyShipSnow")
         {
+            print("collided");
             collision.gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "EnemyShipDessert")
         {
             collision.gameObject.SetActive(false);
         }
+        if (collision.gameObject.tag == "EnemySpaceShip")
+        {
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "EnemySpaceRed")
+        {
+            collision.gameObject.SetActive(false);
+        }
+
+
     }
 }

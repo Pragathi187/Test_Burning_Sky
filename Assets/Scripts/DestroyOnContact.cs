@@ -29,7 +29,7 @@ public class DestroyOnContact : MonoBehaviour
                 explosion.GetComponent<ParticleSystem>().Play();
                 other.gameObject.SetActive(false);
                 this.gameObject.SetActive(false);
-                gameController.score += 5;
+                gameController.score += 3;
                 gameController.scoreText.text = "Score: " + gameController.score.ToString();
                 FindObjectOfType<AudioManager>().GetComponent<AudioManager>().PlayAudio(0);
 
@@ -49,7 +49,7 @@ public class DestroyOnContact : MonoBehaviour
             explosion.transform.position = this.transform.position;
             explosion.GetComponent<ParticleSystem>().Play();
             this.gameObject.SetActive(false);
-            gameController.score += 5;
+            gameController.score += 2;
             gameController.scoreText.text = "Score: " + gameController.score.ToString();
             FindObjectOfType<AudioManager>().GetComponent<AudioManager>().PlayAudio(1);
 

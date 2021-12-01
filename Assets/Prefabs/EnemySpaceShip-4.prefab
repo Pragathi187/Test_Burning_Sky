@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 1775768021032727603}
   - component: {fileID: 1775768021032727602}
   - component: {fileID: 1775768021032727564}
-  - component: {fileID: 95294072707928754}
   - component: {fileID: 114267265914117268}
+  - component: {fileID: 114907440929094412}
   m_Layer: 0
   m_Name: EnemySpaceShip-4
   m_TagString: EnemyShipRed
@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 1775768021032727600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.359, y: 0, z: 0.287}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 2564900752357001951}
   - {fileID: 5583892510755861785}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f793a284be305ce45bfedd1c25cb29d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 1
   explosion: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!114 &1775768021032727602
@@ -145,26 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72ca0d5866825048bd545a7b683693e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.15
---- !u!95 &95294072707928754
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775768021032727600}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  speed: 0.2
 --- !u!114 &114267265914117268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,8 +161,26 @@ MonoBehaviour:
   pooledObjects: []
   objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
     type: 3}
-  amountToPool: 5
+  amountToPool: 2
   shouldExpand: 0
+--- !u!114 &114907440929094412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775768021032727600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74a179827e5dda499f1beb0f8e00363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWait: {x: 0.6, y: 1}
+  dodge: 0.5
+  manueverTime: {x: 1, y: 2}
+  manueverWait: {x: 1, y: 2}
+  smoothing: 7.5
+  tilt: 30
 --- !u!1 &2564900752356745097
 GameObject:
   m_ObjectHideFlags: 0

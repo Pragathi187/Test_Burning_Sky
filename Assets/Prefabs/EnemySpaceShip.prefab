@@ -40,9 +40,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1040490520011308071}
   - component: {fileID: 1040490520011308073}
+  - component: {fileID: 114067869634203974}
   - component: {fileID: 1040490520011308077}
   - component: {fileID: 1040490520011308076}
   - component: {fileID: 1040490520011308050}
+  - component: {fileID: 114910180890196222}
   - component: {fileID: 54038778294924968}
   m_Layer: 0
   m_Name: EnemySpaceShip
@@ -83,6 +85,23 @@ CapsuleCollider:
   m_Height: 0.2051129
   m_Direction: 2
   m_Center: {x: 0.0011036918, y: 0, z: 0.002443537}
+--- !u!114 &114067869634203974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040490520011308078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e67564a5eff7b548bd046fa3b6fed19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
+    type: 3}
+  amountToPool: 2
+  shouldExpand: 0
 --- !u!114 &1040490520011308077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f793a284be305ce45bfedd1c25cb29d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 1
   explosion: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!114 &1040490520011308076
@@ -127,7 +146,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72ca0d5866825048bd545a7b683693e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.17
+  speed: 0.2
+--- !u!114 &114910180890196222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040490520011308078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74a179827e5dda499f1beb0f8e00363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWait: {x: 0.6, y: 1}
+  dodge: 0.5
+  manueverTime: {x: 0.5, y: 1}
+  manueverWait: {x: 0.5, y: 1}
+  smoothing: 7.5
+  tilt: 30
 --- !u!54 &54038778294924968
 Rigidbody:
   m_ObjectHideFlags: 0

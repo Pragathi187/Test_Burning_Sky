@@ -16,4 +16,14 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = audioClips[val];
         audioSource.Play();
     }
+
+    public void PlayMusic()
+    {
+        audioSource.Play();
+    }
+
+   public void StopMusic()
+    {
+        audioSource.Pause();
+    }
 }

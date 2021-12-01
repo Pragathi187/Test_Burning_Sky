@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 174455122725245401}
   - component: {fileID: 174455122725245415}
   - component: {fileID: 114622868130307658}
+  - component: {fileID: 114722033170826852}
   m_Layer: 0
   m_Name: EnemySpaceShip-3
   m_TagString: EnemyShipDessert
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f793a284be305ce45bfedd1c25cb29d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 1
   explosion: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!114 &174455122725245401
@@ -130,8 +131,26 @@ MonoBehaviour:
   pooledObjects: []
   objectsToPool: {fileID: 8627740644303295568, guid: c7cc97ceafaedbe41aaffb0d9b11e247,
     type: 3}
-  amountToPool: 5
+  amountToPool: 2
   shouldExpand: 0
+--- !u!114 &114722033170826852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174455122725245403}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74a179827e5dda499f1beb0f8e00363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWait: {x: 0.6, y: 1}
+  dodge: 0.5
+  manueverTime: {x: 0.5, y: 1}
+  manueverWait: {x: 0.5, y: 1}
+  smoothing: 7.5
+  tilt: 30
 --- !u!1 &174455124694840528
 GameObject:
   m_ObjectHideFlags: 0

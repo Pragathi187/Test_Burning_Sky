@@ -29,9 +29,7 @@ public class PlayerController : MonoBehaviour
 
     public Text HealthText;
     public GameController gameController;
-    private bool enableShield=false;
-    private float shieldEnabletime=5f;
-    public GameObject shield;
+    
     
 
 
@@ -110,7 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             if (health <= 0)
             {
-               
+
                 other.gameObject.SetActive(false);
                 this.gameObject.SetActive(false);
                 playerExplosion.transform.position = other.transform.position;
@@ -128,10 +126,27 @@ public class PlayerController : MonoBehaviour
 
 
         }
+        if (other.gameObject.tag.Equals("EnemySpaceShip"))
+        {
+            health -= 2;
+        }
 
-       
+        if (other.gameObject.tag.Equals("EnemyShipSnow"))
+        {
+            health -= 2;
+        }
+        if (other.gameObject.tag.Equals("EnemyShipDessert"))
+        {
+            health -= 2;
+        }
+        if (other.gameObject.tag.Equals("EnemyShipRed"))
+        {
+            health -= 2;
+        }
+
     }
 
+ 
     public void GameOver()
     {
         

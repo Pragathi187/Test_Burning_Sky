@@ -69,13 +69,17 @@
     <Compile Include="Assets\Scripts\EnemyBulletSpawn.cs" />
     <Compile Include="Assets\Scripts\EnemyMover.cs" />
     <Compile Include="Assets\Scripts\EnemyPooler.cs" />
+    <Compile Include="Assets\Scripts\EvasiveManuever.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GameStart.cs" />
+    <Compile Include="Assets\Scripts\GameWinMenu.cs" />
+    <Compile Include="Assets\Scripts\LookAtPlayer.cs" />
     <Compile Include="Assets\Scripts\Mover.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\UserInputs.cs" />
     <Compile Include="Assets\Scripts\WeaponController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
